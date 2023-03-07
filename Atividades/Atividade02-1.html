@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastros</title>
+</head>
+<body>
+    <form name="Nome"> 
+        <div>
+        <label> Nome: </label>
+            <input type="text" name="nome" id="nome"/>        
+        </div>
+    </form>
+    <form name="Cidade">
+        <div>
+            <label>Cidade</label>
+            <input type="text" name="cidade" id="cidade"/>
+        </div>
+    </form>
+    <input type="submit" value="Preencher Campos" onclick="enviar()"/>
+    <script type="text/javascript">
+        function enviar(){
+            var Nome = document.getElementById("nome");
+            var Cidade = document.getElementById("cidade");
+            Nome.value = 'Ana Luiza'
+            Cidade.value  = 'Sao Paulo'
+        }
+    </script>
+    
+    
+</body>
+</html>

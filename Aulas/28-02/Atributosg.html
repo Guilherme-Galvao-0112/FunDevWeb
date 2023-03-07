@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variaveis Globais</title>
+    
+    <script>
+        function estadoelemento(){
+            let submenu = document.getElementById('submenu');
+            
+            submenu.hidden = !submenu.hidden;
+        }
+    </script>
+</head>
+<body>
+    <!--acceskey-->
+    <input type="text" accesskey="x">
+    <input type="text" accesskey="q">
+    <input type="text" accesskey="w">
+    <br>
+    <br>
+    <h1 class=“titulo”>Cai o preço do etanol</h1>
+
+    <!--Class-->
+    <p class=“texto”>
+
+    Os preços dos combustíveis registraram nova queda na quarta semana
+    de maio, na média nacional, segundo dados divulgados nesta
+    segunda-feira pela Agência Nacional de Petróleo (ANP).
+
+    </p>
+
+    <p class=“destaque direita”>
+
+    O preço médio da gasolina, que tem 25% de etanol anidro em sua
+    composição, é de R$ 2,813 por litro entre 22 e 28 de maio, recuo de
+    1,68% em relação à semana anterior
+
+    </p>
+    <br>
+    <br>
+    <!--dir-->
+    <input type="text" size="50" accesskey="n" dir="ltr" value="Felipe">
+    <input type="text" size="50" dir="rtl" value="10">
+    
+    <br><br>
+    <!--id-->
+    <element id= “value”></element>
+    <br><br>
+    <!--Style-->
+    <p style="background-color:#ededed; text-align:left">
+        <p style="font-family: 'Times New Roman', Times, serif;color: blue;font-size: 15px;" >
+        O atributo style permite a aplicação de CSS inline, ou seja, na linha
+        da definição do elemento na página.
+        </p>   
+    </p>
+    <br><br>
+    <!--Tabindex / atalho para tab-->
+    <!--Title / autoexplicativo -->
+    <!--contenteditable-->
+    <h1 contenteditable=“false”> Cai o preço do etanol</h1>
+
+    <p contenteditable=“true”>  
+
+    Os preços dos combustíveis registraram nova queda na quarta semana de
+    maio.
+
+    </p>
+
+    <div contenteditable=“true”>
+
+    <p contenteditable=“inherit”>
+
+    O preço médio da gasolina é de R$ 2,813
+
+    </p>
+
+    </div>
+    <br><br>
+    <!--Hidden-->
+    <div>
+        <a href="#" onclick="estadoelemento()">
+        Multimedia
+        </a>
+    </div>
+    <div id="submenu"hidden>
+        <ul>
+            <li>Ford</li>
+            <ol>Mustang</ol>
+            <ol>Ranger</ol>
+        </ul>
+    </div>
+    <br><br><br>
+    <!--Atributo personalizado-->
+    <ol>
+
+        <li data-tamanho=“4m15s”>Pescador de Ilusões</li>
+        
+        <li data-tamanho=“2m22s”>Ursinho Pimpão</li>
+        
+        </ol>
+</body>
+</html>

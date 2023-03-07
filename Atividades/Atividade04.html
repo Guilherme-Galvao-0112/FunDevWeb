@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+    <script>
+    </script>
+</head>
+<body>
+    <form name="Formulario">
+        <label name="Nome">Nome: <input type="text" name="nome" id="nome">
+        <br>
+        <label name="Email">Email: <input type="email" name="email" id="email">
+        <br>
+        <label name="Celular">Celular: <input type="tel" nome="celular" id="celular" placeholder="(XX)XXXXX-XXXX"
+            required pattern=“^\(?\d{2}\)\d{5}[-\s]\d{4}$”>
+        <br>
+        <label name="Mensagem">Mensagem:
+            <br>
+            <textarea name="mensagem" id="mensagem"  maxlength="500" cols="30" rows="10"></textarea>
+        </label>
+        <br>
+        <input type="submit" value="Enviar" id="Enviar">
+        <form action="index.php" method="post"></form>
+
+    </form>
+</body>
+</html>
