@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEP</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById('formulario').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const cep = document.getElementById('cep').value;
+                const valor = cep;
+
+                const titulos = document.getElementById('retorno').getElementsByClassName('titulo');
+                for(i = titulos.length - 1; i>=0; i--){
+                    titulos[i].remove();
+                }
+
+                const xhttp = new XMLHttpRequest;
+                xhttp.onloadend = function () {
+                    const obj = JSON.parse(this.responseText);
+                    if (obj.erro) {
+                        alert('CEP Inválido');
+                    } else {
+                        let element = document.createElement('p');
+                        element.classList.add('titulo');
+                        element.append('Cidade: ' + obj.localidade);
+                        document.getElementById('retorno').appendChild(element);
+
+                        element = document.createElement('p');
+                        element.classList.add('titulo');
+                        element.append('Logradouro: ' + obj.logradouro);
+                        document.getElementById('retorno').appendChild(element);
+                        if (obj.complement !== null) {
+                            element = document.createElement('p');
+                            element.classList.add('titulo');
+                            element.append('Complemento: ' + obj.complemento);
+                            document.getElementById('retorno').appendChild(element);
+                        }
+
+                        element = document.createElement('p');
+                        element.classList.add('titulo');
+                        element.append('Bairro: ' + obj.bairro);
+                        document.getElementById('retorno').appendChild(element);
+
+                        element = document.createElement('p');
+                        element.classList.add('titulo');
+                        element.append('Estado: ' + obj.uf);
+                        document.getElementById('retorno').appendChild(element);
+                    }
+                }
+                xhttp.open('GET', 'https://viacep.com.br/ws/' + valor + '/json/', true);
+                xhttp.send();
+
+
+
+
+
+
+
+            });
+        });
+        var filtro = function () {
+            return (event.charCode >= 48 && event.charCode <= 57)
+        }
+    </script>
+</head>
+
+<body>
+    <div class="valign-wrapper blue darken-3" style="width:100%;height:100%;position: absolute;">
+        <div class="valign" style="width:100%;">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6 offset-m3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img id="imageQRCode">
+                            </div>
+                            <div class="card-action">
+                                <form id="formulario">
+                                    <label for="cep">CEP:</label>
+                                    <input type="text" id="cep" onkeypress="return filtro(event)" maxlength="8">
+                                    <input type="submit">
+                                    <br>
+                                    <br>
+
+                                </form>
+                                <div id="retorno">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
