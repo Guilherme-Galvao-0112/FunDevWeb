@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+    <script>
+        window.addEventListener('load', () => {
+            var nutrientes = [];
+            var nome = [];
+            const xhttp = new XMLHttpRequest;
+            xhttp.onloadend = function () {
+                const obj = JSON.parse(this.responseText);
+                if (obj.erro) {
+                    alert('erro');
+                } else {
+                    const tam = obj.length;
+                    for (i = 0; i <= tam; i++) {
+                        let tr = document.createElement('tr');
+                        document.getElementById('corpo').appendChild(tr);
+                        let element = document.createElement('td');
+                        element.classList.add('Nome');
+                        element.append(obj[i].name);
+                        document.getElementById('corpo').appendChild(element);
+
+                        element = document.createElement('td');
+                        element.classList.add('titulo');
+                        element.append(obj[i].family);
+                        document.getElementById('corpo').appendChild(element);
+                        
+                        element = document.createElement('td');
+                        element.classList.add('titulo');
+                        element.append(obj[i].order);
+                        document.getElementById('corpo').appendChild(element);
+
+                        element = document.createElement('td');
+                        element.classList.add('titulo');
+                        element.append(obj[i].genus);
+                        document.getElementById('corpo').appendChild(element);
+                        
+                      
+                       
+                                             
+                    }
+
+                }
+
+            }
+            xhttp.open('get', 'frutas.json', true);
+            xhttp.send();
+        });
+    </script>
+</head>
+
+<body>
+    <form id="formulario">
+
+    </form>
+    <table id="tabela">
+        <tbody id="corpo">
+            <tr>
+                <th id="nome">Nome</th>
+                <th id="familia">Familia</th>
+                <th id="ordem">Ordem</th>
+                <th id="genero">Genero</th>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</body>
+
+</html>

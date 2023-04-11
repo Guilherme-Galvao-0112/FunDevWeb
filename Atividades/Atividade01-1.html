@@ -26,6 +26,7 @@
                     if (obj.erro) {
                         alert('CEP Inválido');
                     } else {
+                        console.log(obj)
                         let element = document.createElement('p');
                         element.classList.add('titulo');
                         element.append('Cidade: ' + obj.localidade);
